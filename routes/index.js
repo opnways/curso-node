@@ -8,4 +8,7 @@ router.get('/', (req, res) => {
 const usuariosRouter = require('./usuarios');
 router.use(usuariosRouter);
 
+const tasksRouter = require('./tasks');
+router.use(tasksRouter);
+
 module.exports = router;
