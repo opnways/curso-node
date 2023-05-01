@@ -5,21 +5,7 @@ require('dotenv').config();
 const port = process.env.PORT || 3000;
 const app = express();
 
-const { Pool } = require('pg');
-const pool = new Pool({
-user: 'postgres',
-host: 'localhost',database: 'nombre_de_tu_base_de_datos',
-password: '1234',
-port: 5432,
-});
 
-pool.query('SELECT * FROM fichajes', (err, result) => {
-  if (err) {
-  console.error(err);
-  return;
-  }
-  console.log(result.rows);
-  });
 
 // crear una ruta para el verbo GET
 app.get('/', (req, res) => {
