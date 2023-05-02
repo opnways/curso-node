@@ -5,7 +5,12 @@ require('dotenv').config();
 const port = process.env.PORT || 3000;
 const app = express();
 
-
+const sequelize = require('./config/sequelize');
+const User = require('./models/user');
+sequelize.sync()
+  .then(() => {
+    console.log('Database synced!');
+  });
 
 // crear una ruta para el verbo GET
 app.get('/', (req, res) => {
